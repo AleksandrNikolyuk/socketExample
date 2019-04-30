@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <!-- <link rel='stylesheet' type="text/css" href='/stylesheets/style.css' /> -->
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+      <h1><%= title %></h1>
+    <div class="chatBlock">
+      
+      <input class="field" type="text" placeholder="Enter your name">
+      <button class="button">Send</button>
+      <div class="chat"></div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/javascripts/chat.js"></script>
+  </body>
+</html>
