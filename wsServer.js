@@ -1,6 +1,8 @@
 // const { logger } = require('logger');
 const socketio = require('socket.io');
 const messageModel = require('./models/messagesModel');
+const Ajv = require('ajv');
+const ProfileJsonSchema = require('schemes/profile');
 
 module.exports.init = async (server) => {
   const options = {};
@@ -12,7 +14,7 @@ module.exports.init = async (server) => {
     console.debug(`connect: ${socket.id}`);
     socket.emit('connected', 'You are connected') 
 
-    socket.join('all');
+    socket.join('all');  // в какие rooms отправлять сообщения. Так как у нас room одна пишем 'all'
 
     socket.on('msg', content => {
       const obj = {
@@ -21,6 +23,16 @@ module.exports.init = async (server) => {
         username: content.name
       };
 
+    let ajv = new Ajv({verbose: true});
+
+    const validProfile = ajv.validate(ProfileJsonSchema, obj);
+
+      // Если данные не соответствуют json схеме, тогда формируем ошибку и выбрасываем исключение
+      if (!validProfile) {
+          const message = `${ajv.errors[0].parentSchema.description} ${ajv.errors[0].message}`;
+          throw new Error(message);
+      }
+    
       messageModel.create(obj, err => {
         if(err) return console.error('messageModel', err);
         socket.emit('message', obj);
