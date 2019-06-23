@@ -1,6 +1,6 @@
 module.exports = {
   db: {
-    uri: 'mongodb://localhost:27017/chats',
+    uri: 'mongodb://localhost:27017/place',
     connect: {
       config: {
         autoIndex: false,

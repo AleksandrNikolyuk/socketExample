@@ -6,38 +6,10 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+
       <h1><%= title %></h1>
-    <!-- <div class="chatBlock">
-      
-      <input class="field" type="text" placeholder="Enter your name">
-      <button class="button">Send</button>
-      <div class="chat"></div>
-    </div> -->
-
-    <div class="container clearfix">
-      <div class="chat">
-          
-
-          <div class="chat-history">
-              <ul>
-              </ul>
-          </div>
-
-          <div class="chat-header clearfix">
-              <div class="chat-about">
-                  <input name="name" type="text" placeholder ="Enter your name">
-              </div>
-          </div>
-
-          <div class="chat-message clearfix">
-              <textarea name="message" placeholder ="Type your message" rows="3"></textarea>
-              <button type="submit">Send</button>
-          </div>
-      </div>
-  </div>
 
     <script src="/socket.io/socket.io.js"></script>
-    <!-- <script src="/javascripts/chat.js"></script> -->
     <script src="/javascripts/socket.js"></script>
   </body>
 </html>

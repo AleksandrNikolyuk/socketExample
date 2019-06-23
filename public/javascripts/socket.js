@@ -1,7 +1,7 @@
 const button = document.querySelector('button');
 
 window.addEventListener('load', () => {
-  const socket = io(); 
+  const socket = io();
 
   socket.on('connected', function (msg) {
       console.log(msg);
