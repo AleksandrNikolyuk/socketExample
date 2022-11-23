@@ -25,7 +25,7 @@
     "node-sass-middleware": "0.11.0",
     "passport": "^0.4.0",
     "passport-facebook": "^2.1.1",
-    "socket.io": "^2.2.0",
+    "socket.io": "^2.5.0",
     "url-parse": "^1.4.6",
     "vhost": "^3.0.2",
     "winston": "^3.1.0",
